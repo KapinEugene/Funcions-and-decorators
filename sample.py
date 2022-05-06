@@ -1,12 +1,13 @@
 def decorate_method(method):
-    import time
+    from timeit import default_timer
 
     def wrapper(self, *args, **kwargs):
-        start = time.time()
-        new_rez = method(self, *args, **kwargs)
-        end = time.time()
-        print('Время выполнения: {:2f} секунд.'.format(end - start))
-        return new_rez
+        start = default_timer()
+        conclusion = method(self, *args, **kwargs)
+        end = default_timer()
+        print('Время выполнения: {:f} секунд.'.format(end - start))
+        return conclusion
+
     return wrapper
 
 
