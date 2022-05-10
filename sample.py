@@ -1,3 +1,6 @@
+from unittest import case
+
+
 def decorate_method(method):
     from timeit import default_timer
 
@@ -19,23 +22,46 @@ class Sample(object):
     @decorate_method
     def select_list(self):
         new_list_number = []
-        if self.choice == 1:
-            for i in self.list_number:
-                if i % 2 == 0:
-                    new_list_number.append(i)
-            return new_list_number
-        if self.choice == 2:
-            for i in self.list_number:
-                if i % 2 != 0:
-                    new_list_number.append(i)
-            return new_list_number
-        if self.choice == 3:
-            for i in self.list_number:
-                if i > 1:
-                    number_of_divisors = 0
-                    for j in range(1, i+1):
-                        if i % j == 0:
-                            number_of_divisors += 1
-                    if number_of_divisors == 2:
+        match self.choice:
+            case 1:
+                for i in self.list_number:
+                    if i % 2 == 0:
                         new_list_number.append(i)
-            return new_list_number
+                return new_list_number
+            case 2:
+                for i in self.list_number:
+                    if i % 2 != 0:
+                        new_list_number.append(i)
+                return new_list_number
+            case 3:
+                for i in self.list_number:
+                    if i > 1:
+                        number_of_divisors = 0
+                        for j in range(1, i + 1):
+                            if i % j == 0:
+                                number_of_divisors += 1
+                        if number_of_divisors == 2:
+                            new_list_number.append(i)
+                return new_list_number
+
+
+        # if self.choice == 1:
+        #     for i in self.list_number:
+        #         if i % 2 == 0:
+        #             new_list_number.append(i)
+        #     return new_list_number
+        # if self.choice == 2:
+        #     for i in self.list_number:
+        #         if i % 2 != 0:
+        #             new_list_number.append(i)
+        #     return new_list_number
+        # if self.choice == 3:
+        #     for i in self.list_number:
+        #         if i > 1:
+        #             number_of_divisors = 0
+        #             for j in range(1, i+1):
+        #                 if i % j == 0:
+        #                     number_of_divisors += 1
+        #             if number_of_divisors == 2:
+        #                 new_list_number.append(i)
+        #     return new_list_number
