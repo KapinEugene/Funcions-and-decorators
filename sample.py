@@ -27,12 +27,10 @@ class Sample(object):
                 for i in self.list_number:
                     if i % 2 == 0:
                         new_list_number.append(i)
-                return new_list_number
             case 2:
                 for i in self.list_number:
                     if i % 2 != 0:
                         new_list_number.append(i)
-                return new_list_number
             case 3:
                 for i in self.list_number:
                     if i > 1:
@@ -42,8 +40,7 @@ class Sample(object):
                                 number_of_divisors += 1
                         if number_of_divisors == 2:
                             new_list_number.append(i)
-                return new_list_number
-
+        return new_list_number
 
         # if self.choice == 1:
         #     for i in self.list_number:

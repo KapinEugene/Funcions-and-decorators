@@ -13,12 +13,23 @@ def decorate_method(method):
 
 class ListSquareNumber(object):
     def __init__(self, list_n_number, degree):
-        self.list_n_number = list_n_number
+        self.__list_n_number = list_n_number
         self.degree = degree
+
+    def generator(self):
+        list_prime_numbers = []
+        for k in self.__list_n_number:
+            counter = 0
+            for j in range(2, k+1):
+                if k % j == 0:
+                    counter += 1
+            if counter == 1:
+                list_prime_numbers.append(k)
+        yield list_prime_numbers
 
     @decorate_method
     def list_square_number(self):
         list_number_squared = []
-        for i in self.list_n_number:
-            list_number_squared.append(i**self.degree)
+        for i in self.__list_n_number:
+            list_number_squared.append(int(i**self.degree))
         return list_number_squared
