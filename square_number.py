@@ -16,17 +16,6 @@ class ListSquareNumber(object):
         self.__list_n_number = list_n_number
         self.degree = degree
 
-    def generator(self):
-        list_prime_numbers = []
-        for k in self.__list_n_number:
-            counter = 0
-            for j in range(2, k+1):
-                if k % j == 0:
-                    counter += 1
-            if counter == 1:
-                list_prime_numbers.append(k)
-        yield list_prime_numbers
-
     @decorate_method
     def list_square_number(self):
         list_number_squared = []
